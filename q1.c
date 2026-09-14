@@ -6,8 +6,12 @@ int main(){
     puts("Digite o valor de R, G e B:");
     scanf("%hhu %hhu %hhu", &R, &G, &B);
 
+    do{
     puts("Digite o valor de M (de 0 até 7)");
     scanf("%hhu", &M);
+
+    if (M > 7) puts("Valor inválido.");
+    } while (M > 7);
 
     R = (R & 254) | ((M >> 2) & 1);
     G = (G & 254) | ((M >> 1) & 1);
