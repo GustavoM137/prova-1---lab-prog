@@ -9,14 +9,12 @@ int main(){
 
         if (n < 3) puts("Valor inválido.");
     } while (n < 3);
+
+    puts("Digite os valores de X1 e X2:");
+    scanf("%d %d", &x1, &x2);
+    soma = x1 + x2;
     
     for (int i = 2; i < n; i++){
-        if (i == 2){
-            puts("Digite os valores de X1 e X2:");
-            scanf("%d %d", &x1, &x2);
-            soma = x1 + x2;
-        }
-
         printf("Digite o valor de X%d\n", i + 1);
         scanf("%d", &xn);
 
