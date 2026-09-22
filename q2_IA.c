@@ -2,20 +2,33 @@
 
 int main(void) {
     int n;
-    scanf("%d", &n);
 
-    double xPrev, xCurr, xNext;
+    if (scanf("%d", &n) != 1 || n < 3) {
+        printf("Entrada invalida\n");
+        return 1;
+    }
 
-    scanf("%lf %lf", &xPrev, &xCurr);
+    float xPrev, xAtual, xProx;
 
+    /* le as duas primeiras amostras */
+    if (scanf("%f %f", &xPrev, &xAtual) != 2) {
+        printf("Entrada invalida\n");
+        return 1;
+    }
+
+    /* para cada nova amostra lida, calcula a media da janela anterior */
     for (int i = 2; i <= n - 1; i++) {
-        scanf("%lf", &xNext);
+        if (scanf("%f", &xProx) != 1) {
+            printf("Entrada invalida\n");
+            return 1;
+        }
 
-        double y = (xPrev + xCurr + xNext) / 3.0;
+        float y = (xPrev + xAtual + xProx) / 3.0f;
         printf("%.2f\n", y);
 
-        xPrev = xCurr;
-        xCurr = xNext;
+        /* desliza a janela */
+        xPrev = xAtual;
+        xAtual = xProx;
     }
 
     return 0;
